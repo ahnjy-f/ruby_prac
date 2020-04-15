@@ -7,7 +7,4 @@ class Administrator < ApplicationRecord
         end
     end
 
-    def active?
-        !suspended?
-    end
 end
