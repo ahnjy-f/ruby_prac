@@ -3136,3 +3136,145 @@ Processing by Staff::AccountsController#show as HTML
 Completed 200 OK in 886ms (Views: 717.4ms | ActiveRecord: 82.2ms | Allocations: 5271)
 
 
+  [1m[35m (32.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (13.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (855.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "baukis2_development"[0m
+  [1m[35m (1068.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "baukis2_test"[0m
+  [1m[35m (4628.8ms)[0m  [1m[35mCREATE DATABASE "baukis2_development" ENCODING = 'unicode'[0m
+  [1m[35m (6625.5ms)[0m  [1m[35mCREATE DATABASE "baukis2_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (13.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "administrators" CASCADE[0m
+  [1m[35m (253.2ms)[0m  [1m[35mCREATE TABLE "administrators" ("id" bigserial primary key, "email" character varying NOT NULL, "hashed_password" character varying, "suspended" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (23.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_administrators_on_LOWER_email" ON "administrators"  (lower((email)::text))[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "staff_members" CASCADE[0m
+  [1m[35m (66.8ms)[0m  [1m[35mCREATE TABLE "staff_members" ("id" bigserial primary key, "email" character varying NOT NULL, "family_name" character varying NOT NULL, "given_name" character varying NOT NULL, "family_name_kana" character varying NOT NULL, "given_name_kana" character varying NOT NULL, "hashed_password" character varying, "start_date" date NOT NULL, "end_date" date, "suspended" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (24.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_staff_members_on_LOWER_email" ON "staff_members"  (lower((email)::text))[0m
+  [1m[35m (24.6ms)[0m  [1m[35mCREATE  INDEX  "index_staff_members_on_family_name_kana_and_given_name_kana" ON "staff_members"  ("family_name_kana", "given_name_kana")[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200410015154)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200409063720);
+
+[0m
+  [1m[35m (58.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (13.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (11.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-15 05:10:57.852219"], ["updated_at", "2020-04-15 05:10:57.852219"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (3.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4d67c22773d40e11d37ab63413b84fa9d4a1d5eb"], ["created_at", "2020-04-15 05:10:57.905894"], ["updated_at", "2020-04-15 05:10:57.905894"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (12.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "administrators" CASCADE[0m
+  [1m[35m (268.1ms)[0m  [1m[35mCREATE TABLE "administrators" ("id" bigserial primary key, "email" character varying NOT NULL, "hashed_password" character varying, "suspended" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (26.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_administrators_on_LOWER_email" ON "administrators"  (lower((email)::text))[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "staff_members" CASCADE[0m
+  [1m[35m (67.2ms)[0m  [1m[35mCREATE TABLE "staff_members" ("id" bigserial primary key, "email" character varying NOT NULL, "family_name" character varying NOT NULL, "given_name" character varying NOT NULL, "family_name_kana" character varying NOT NULL, "given_name_kana" character varying NOT NULL, "hashed_password" character varying, "start_date" date NOT NULL, "end_date" date, "suspended" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (25.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_staff_members_on_LOWER_email" ON "staff_members"  (lower((email)::text))[0m
+  [1m[35m (25.5ms)[0m  [1m[35mCREATE  INDEX  "index_staff_members_on_family_name_kana_and_given_name_kana" ON "staff_members"  ("family_name_kana", "given_name_kana")[0m
+  [1m[35m (56.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200410015154)[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200409063720);
+
+[0m
+  [1m[35m (63.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (10.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (11.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-15 05:10:59.276985"], ["updated_at", "2020-04-15 05:10:59.276985"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (3.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-15 05:10:59.323679"], ["key", "environment"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4d67c22773d40e11d37ab63413b84fa9d4a1d5eb"], ["created_at", "2020-04-15 05:10:59.361188"], ["updated_at", "2020-04-15 05:10:59.361188"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (11.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (24.5ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "taro@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$BUJ5lJ/lciI76VPWwyLBB.qsKaXJxOx73KJBCI7IuTy/LtCXEPIAy"], ["start_date", "2020-04-15"], ["created_at", "2020-04-15 05:11:00.524862"], ["updated_at", "2020-04-15 05:11:00.524862"]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.2ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "sato.jiro@example.com"], ["family_name", "佐藤"], ["given_name", "二郎"], ["family_name_kana", "サトウ"], ["given_name_kana", "ジロウ"], ["hashed_password", "$2a$12$14bfda7Vgx1KB1pZ28rl8O3s91l1GCTpiFDXw63CSOc1UmAOU.SYO"], ["start_date", "2020-01-06"], ["end_date", "2020-04-15"], ["created_at", "2020-04-15 05:11:00.908744"], ["updated_at", "2020-04-15 05:11:00.908744"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.1ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "suspended", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "suzuki.saburo@example.com"], ["family_name", "鈴木"], ["given_name", "三郎"], ["family_name_kana", "スズキ"], ["given_name_kana", "サブロウ"], ["hashed_password", "$2a$12$207Zietlle44fyUvSoH2P.iJ.sq9V0.lAHMCyNbUnxIHtjer/8SQe"], ["start_date", "2020-01-07"], ["suspended", true], ["created_at", "2020-04-15 05:11:01.265511"], ["updated_at", "2020-04-15 05:11:01.265511"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.2ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "takahashi.matsuko@example.com"], ["family_name", "高橋"], ["given_name", "松子"], ["family_name_kana", "タカハシ"], ["given_name_kana", "マツコ"], ["hashed_password", "$2a$12$N9zTvOgidc6/RPOvVNd/SebMsXYUO3GnwILiPZjy3U4DhCRJDqyEy"], ["start_date", "2020-01-08"], ["created_at", "2020-04-15 05:11:01.621268"], ["updated_at", "2020-04-15 05:11:01.621268"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.1ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "tanaka.takeko@example.com"], ["family_name", "田中"], ["given_name", "竹子"], ["family_name_kana", "タナカ"], ["given_name_kana", "タケコ"], ["hashed_password", "$2a$12$GoAtLnoyhW.msKdQNh.x6e6YE6blpoUASZIBmy1sFXSO.4u8t/DZW"], ["start_date", "2020-01-09"], ["created_at", "2020-04-15 05:11:01.970594"], ["updated_at", "2020-04-15 05:11:01.970594"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.5ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "sato.umeko@example.com"], ["family_name", "佐藤"], ["given_name", "梅子"], ["family_name_kana", "サトウ"], ["given_name_kana", "ウメコ"], ["hashed_password", "$2a$12$5Z7AnKjRExo7ylMx6FBPGOCPy3095qGEK7FMga1wc6S/0TFLMWWaO"], ["start_date", "2020-01-10"], ["created_at", "2020-04-15 05:11:02.317625"], ["updated_at", "2020-04-15 05:11:02.317625"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.0ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "suzuki.jiro@example.com"], ["family_name", "鈴木"], ["given_name", "二郎"], ["family_name_kana", "スズキ"], ["given_name_kana", "ジロウ"], ["hashed_password", "$2a$12$8BXDIQYi//fYkKjHWJO5eOxUeYl.ZatXipM//Pq5m5yr7fiEqQmUm"], ["start_date", "2020-01-11"], ["created_at", "2020-04-15 05:11:02.665330"], ["updated_at", "2020-04-15 05:11:02.665330"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.3ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "takahashi.saburo@example.com"], ["family_name", "高橋"], ["given_name", "三郎"], ["family_name_kana", "タカハシ"], ["given_name_kana", "サブロウ"], ["hashed_password", "$2a$12$rtYUisOJxRp.7BWPjml0teal0rTkHsG4cxRcDbaA0oE6aO4sE.v4u"], ["start_date", "2020-01-12"], ["created_at", "2020-04-15 05:11:03.010257"], ["updated_at", "2020-04-15 05:11:03.010257"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "tanaka.matsuko@example.com"], ["family_name", "田中"], ["given_name", "松子"], ["family_name_kana", "タナカ"], ["given_name_kana", "マツコ"], ["hashed_password", "$2a$12$i434UtBR.mubI5PPNYQz3.cPTfdAqBZkdMpexpWHgw4XDMSZkl9Wi"], ["start_date", "2020-01-13"], ["created_at", "2020-04-15 05:11:03.423690"], ["updated_at", "2020-04-15 05:11:03.423690"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.8ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "sato.takeko@example.com"], ["family_name", "佐藤"], ["given_name", "竹子"], ["family_name_kana", "サトウ"], ["given_name_kana", "タケコ"], ["hashed_password", "$2a$12$Ko9XMhhuLTHPYEykWCxKfuc06kl3WLvNyLtR5/U8y3LnBPzEULXry"], ["start_date", "2020-01-14"], ["created_at", "2020-04-15 05:11:03.780716"], ["updated_at", "2020-04-15 05:11:03.780716"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.7ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "suzuki.umeko@example.com"], ["family_name", "鈴木"], ["given_name", "梅子"], ["family_name_kana", "スズキ"], ["given_name_kana", "ウメコ"], ["hashed_password", "$2a$12$UCFbwW71QX2xswpl7AbfQen/pzM6HNFJ/fcxeCR0iKn9xvGeXU2a6"], ["start_date", "2020-01-15"], ["created_at", "2020-04-15 05:11:04.129285"], ["updated_at", "2020-04-15 05:11:04.129285"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "takahashi.jiro@example.com"], ["family_name", "高橋"], ["given_name", "二郎"], ["family_name_kana", "タカハシ"], ["given_name_kana", "ジロウ"], ["hashed_password", "$2a$12$vNoK0riQpU88FYOV19PKj.G1ooZO2PdQv3g3puOB1PID7Ajg8bJ6q"], ["start_date", "2020-01-16"], ["created_at", "2020-04-15 05:11:04.494942"], ["updated_at", "2020-04-15 05:11:04.494942"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.0ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "tanaka.saburo@example.com"], ["family_name", "田中"], ["given_name", "三郎"], ["family_name_kana", "タナカ"], ["given_name_kana", "サブロウ"], ["hashed_password", "$2a$12$uD4hLibm0UQxMcCsuEDsQ.1j0ZloPfQSV/hZxOwogKX22hlDj08Wm"], ["start_date", "2020-01-17"], ["created_at", "2020-04-15 05:11:04.879029"], ["updated_at", "2020-04-15 05:11:04.879029"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.8ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "sato.matsuko@example.com"], ["family_name", "佐藤"], ["given_name", "松子"], ["family_name_kana", "サトウ"], ["given_name_kana", "マツコ"], ["hashed_password", "$2a$12$OeN4AdKBpXZp0DHSgdogsuv4ciFh2whSszY5nWh01jossrMwBsrfe"], ["start_date", "2020-01-18"], ["created_at", "2020-04-15 05:11:05.256312"], ["updated_at", "2020-04-15 05:11:05.256312"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.1ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "suzuki.takeko@example.com"], ["family_name", "鈴木"], ["given_name", "竹子"], ["family_name_kana", "スズキ"], ["given_name_kana", "タケコ"], ["hashed_password", "$2a$12$aWZ8ZFE44/QNp2CaK5vQEeSnYhKJV4bL0lxajw1RyjOSTD/SuAJ3e"], ["start_date", "2020-01-19"], ["created_at", "2020-04-15 05:11:05.623801"], ["updated_at", "2020-04-15 05:11:05.623801"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "takahashi.umeko@example.com"], ["family_name", "高橋"], ["given_name", "梅子"], ["family_name_kana", "タカハシ"], ["given_name_kana", "ウメコ"], ["hashed_password", "$2a$12$qTs8141/X5zVkuOhYMHMW.DBnkF7B5ND/UfSq2YdM69f8jqyGH6bm"], ["start_date", "2020-01-20"], ["created_at", "2020-04-15 05:11:05.977958"], ["updated_at", "2020-04-15 05:11:05.977958"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.8ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "tanaka.jiro@example.com"], ["family_name", "田中"], ["given_name", "二郎"], ["family_name_kana", "タナカ"], ["given_name_kana", "ジロウ"], ["hashed_password", "$2a$12$JQWsjd4KctprFOOVFTHcYen/JgLzVFyRFWjI0demd3qhO9NKc02tm"], ["start_date", "2020-01-21"], ["created_at", "2020-04-15 05:11:06.329075"], ["updated_at", "2020-04-15 05:11:06.329075"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (1.6ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "sato.saburo@example.com"], ["family_name", "佐藤"], ["given_name", "三郎"], ["family_name_kana", "サトウ"], ["given_name_kana", "サブロウ"], ["hashed_password", "$2a$12$wRFh0RVLe8uvVw8.Ul/6m.B98N6pgY7CrlJOB.2WOHKqZGuQj6.mG"], ["start_date", "2020-01-22"], ["created_at", "2020-04-15 05:11:06.682929"], ["updated_at", "2020-04-15 05:11:06.682929"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "suzuki.matsuko@example.com"], ["family_name", "鈴木"], ["given_name", "松子"], ["family_name_kana", "スズキ"], ["given_name_kana", "マツコ"], ["hashed_password", "$2a$12$iEj246MkOnfKg7viC.bSCOVIsg6Vw7BJMLBsiwEc5vvaDisa99Kcm"], ["start_date", "2020-01-23"], ["created_at", "2020-04-15 05:11:07.038176"], ["updated_at", "2020-04-15 05:11:07.038176"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.8ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "takahashi.takeko@example.com"], ["family_name", "高橋"], ["given_name", "竹子"], ["family_name_kana", "タカハシ"], ["given_name_kana", "タケコ"], ["hashed_password", "$2a$12$uEyVFKVRxuvYN6waiYZJwuAr8Kw2KGAxaXNjrZAEaseQ6qBJ12Gs2"], ["start_date", "2020-01-24"], ["created_at", "2020-04-15 05:11:07.384778"], ["updated_at", "2020-04-15 05:11:07.384778"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Create (0.6ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "tanaka.umeko@example.com"], ["family_name", "田中"], ["given_name", "梅子"], ["family_name_kana", "タナカ"], ["given_name_kana", "ウメコ"], ["hashed_password", "$2a$12$k8.UNP7nKURQMhpUqvL1uuO6egTwhaS.BdrnCp0WG00WgQvKxpSa6"], ["start_date", "2020-01-25"], ["created_at", "2020-04-15 05:11:07.734775"], ["updated_at", "2020-04-15 05:11:07.734775"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdministrator Create (21.8ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "hanako@example.com"], ["hashed_password", "$2a$12$xJMKjBfH8nl8Ft.8n5UtkuDW3aaTbGau4IGIlLD5ZHHHrdiyKiN1C"], ["created_at", "2020-04-15 05:11:08.319836"], ["updated_at", "2020-04-15 05:11:08.319836"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin" for 172.23.0.1 at 2020-04-15 05:12:39 +0000
+  [1m[35m (14.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::TopController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  Rendering admin/top/index.html.erb within layouts/admin
+  Rendered admin/top/index.html.erb within layouts/admin (Duration: 52.9ms | Allocations: 391)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 9.9ms | Allocations: 282)
+  Rendered shared/_footer.html.erb (Duration: 6.4ms | Allocations: 84)
+Completed 200 OK in 6279ms (Views: 6257.3ms | ActiveRecord: 0.0ms | Allocations: 25628)
+
+
