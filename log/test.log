@@ -783,3 +783,649 @@ Processing by Staff::AccountsController#update as HTML
 Redirected to http://baukis2.example.com/account
 Completed 302 Found in 64ms (ActiveRecord: 22.3ms | Allocations: 1042)
   [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (13.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (9.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (57.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 05:43:30 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+Redirected to http://baukis2.example.com/admin/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.0ms | Allocations: 396)
+  [1m[35m (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Started GET "/admin/staff_members/1" for 127.0.0.1 at 2020-04-15 05:43:32 +0000
+Processing by Admin::StaffMembersController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"1"}
+Redirected to http://baukis2.example.com/admin/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 236)
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (43.0ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver1@example.com"], ["hashed_password", "$2a$12$sQ3jZ3uoulJ3ooTZtA/2tu8tapmIU3rRJB5DgpaDi9qp3WYZIdTWK"], ["created_at", "2020-04-15 05:43:33.499416"], ["updated_at", "2020-04-15 05:43:33.499416"]]
+  [1m[35m (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 05:43:34 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver1@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (6.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver1@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 528ms (ActiveRecord: 6.4ms | Allocations: 1305)
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 05:43:36 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 22ms (ActiveRecord: 5.8ms | Allocations: 626)
+  [1m[35m (4.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.6ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver2@example.com"], ["hashed_password", "$2a$12$6jaTStG7MQlPZnVe4lWCs.Yahfi25Sat7dJ2GAdWQOaD5WaqeVGfS"], ["created_at", "2020-04-15 05:43:37.548183"], ["updated_at", "2020-04-15 05:43:37.548183"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 05:43:38 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver2@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (4.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver2@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 490ms (ActiveRecord: 4.5ms | Allocations: 553)
+  [1m[36mAdministrator Update (5.6ms)[0m  [1m[33mUPDATE "administrators" SET "suspended" = $1 WHERE "administrators"."id" = $2[0m  [["suspended", true], ["id", 2]]
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 05:43:39 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering errors/internal_server_error.html.erb within layouts/admin
+  Rendered errors/internal_server_error.html.erb within layouts/admin (Duration: 24.7ms | Allocations: 204)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 13.5ms | Allocations: 300)
+  Rendered shared/_footer.html.erb (Duration: 6.8ms | Allocations: 84)
+Completed 500 Internal Server Error in 410ms (Views: 401.5ms | ActiveRecord: 5.2ms | Allocations: 4058)
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (1.3ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver3@example.com"], ["hashed_password", "$2a$12$E2Bd1uwXofFOiNLVSuym6u9LY0wjZelnREaGxtPDBBolcL.9gAWM2"], ["created_at", "2020-04-15 05:43:40.854180"], ["updated_at", "2020-04-15 05:43:40.854180"]]
+  [1m[35m (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 05:43:41 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver3@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (12.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver3@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 429ms (ActiveRecord: 12.0ms | Allocations: 553)
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 06:43:43 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (4.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 4.0ms | Allocations: 483)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (2.2ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver4@example.com"], ["hashed_password", "$2a$12$rkNsIiV3mmY/K9aqf67BV.4LvwyWNjingRQ04Qgh/TzXt587bNPJ."], ["created_at", "2020-04-15 05:43:43.531562"], ["updated_at", "2020-04-15 05:43:43.531562"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 05:43:43 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver4@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (6.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver4@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 427ms (ActiveRecord: 6.7ms | Allocations: 553)
+Started POST "/admin/staff_members" for 127.0.0.1 at 2020-04-15 05:43:45 +0000
+Processing by Admin::StaffMembersController#create as HTML
+  Parameters: {"staff_member"=>{"email"=>"member1@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"false"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 5.5ms | Allocations: 474)
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.8ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver5@example.com"], ["hashed_password", "$2a$12$/hcHj5kN5eSshfFCjoXGCOCa1H02jx26fj9/G7ZtH02HB8sX49sCW"], ["created_at", "2020-04-15 05:43:46.301233"], ["updated_at", "2020-04-15 05:43:46.301233"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 05:43:46 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver5@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (10.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver5@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 419ms (ActiveRecord: 10.2ms | Allocations: 553)
+Started POST "/admin/staff_members" for 127.0.0.1 at 2020-04-15 05:43:47 +0000
+Processing by Admin::StaffMembersController#create as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (9.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 9.9ms | Allocations: 470)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.8ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver6@example.com"], ["hashed_password", "$2a$12$ZcyWZNx8GJSfzgJ/L.SfVe3RnGOM8wVaPqFInRbheO5K3EiOSST82"], ["created_at", "2020-04-15 05:43:48.711107"], ["updated_at", "2020-04-15 05:43:48.711107"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 05:43:49 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver6@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver6@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 413ms (ActiveRecord: 5.0ms | Allocations: 553)
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (49.4ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member3@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$mKGTXDOJohv0XsUZbSmA3.FAydKFp4P1H9qQ1iVns6kEYUFIV0Br6"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:43:50.563519"], ["updated_at", "2020-04-15 05:43:50.563519"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/admin/staff_members/1" for 127.0.0.1 at 2020-04-15 05:43:50 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"staff_member"=>{"email"=>"member2@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"true"}, "host"=>"baukis2.example.com", "id"=>"1"}
+  [1m[36mAdministrator Load (4.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 4.9ms | Allocations: 474)
+  [1m[36mStaffMember Load (26.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.6ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver7@example.com"], ["hashed_password", "$2a$12$.BbUQavsy3HGXkaZsbj2a.4WBbkDtuqdT.Uni6AckuoG7GdADxRFK"], ["created_at", "2020-04-15 05:43:51.687148"], ["updated_at", "2020-04-15 05:43:51.687148"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 05:43:52 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver7@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (16.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver7@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 431ms (ActiveRecord: 16.3ms | Allocations: 553)
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.0ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member5@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$XSh0y1LBgyafv3nXZ7w86./qIVouKF7PKENkdtJS59Dvl6mUXs4O6"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:43:53.382401"], ["updated_at", "2020-04-15 05:43:53.382401"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/admin/staff_members/2" for 127.0.0.1 at 2020-04-15 05:43:53 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"staff_member"=>{"email"=>"member4@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"false", "hashed_password"=>"[FILTERED]"}, "host"=>"baukis2.example.com", "id"=>"2"}
+  [1m[36mAdministrator Load (0.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms | Allocations: 488)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/account" for 127.0.0.1 at 2020-04-15 05:43:54 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+Redirected to http://baukis2.example.com/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 297)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.8ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member6@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$9Q0BG51u.COGy0gWNYm1QO6KT7dhIbhTbuCWQNwWVg8w6SW0J8PQC"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:43:55.690600"], ["updated_at", "2020-04-15 05:43:55.690600"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 05:43:56 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member6@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (6.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member6@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 491ms (ActiveRecord: 6.4ms | Allocations: 1011)
+Started GET "/account" for 127.0.0.1 at 2020-04-15 05:43:57 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (7.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering staff/accounts/show.html.erb within layouts/staff
+  Rendered staff/accounts/show.html.erb within layouts/staff (Duration: 31.2ms | Allocations: 292)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered staff/shared/_header.html.erb (Duration: 11.9ms | Allocations: 326)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 421ms (Views: 393.3ms | ActiveRecord: 7.0ms | Allocations: 3469)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (0.6ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member7@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$Ttozq.6DpEqxdsJujanwcOHWsjeH92O/RZNKbhsSwC25MzM4fGuf."], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:43:58.578445"], ["updated_at", "2020-04-15 05:43:58.578445"]]
+  [1m[35m (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 05:43:58 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member7@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (5.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member7@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 473ms (ActiveRecord: 5.1ms | Allocations: 581)
+  [1m[36mStaffMember Update (7.4ms)[0m  [1m[33mUPDATE "staff_members" SET "suspended" = $1 WHERE "staff_members"."id" = $2[0m  [["suspended", true], ["id", 4]]
+Started GET "/account" for 127.0.0.1 at 2020-04-15 05:44:00 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (4.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 4.8ms | Allocations: 493)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (0.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member8@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$XUkwYwrSLwRj4LRd3z25fu80oND7YZCHQAMXJYbksqybrN44HokfS"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:44:01.020716"], ["updated_at", "2020-04-15 05:44:01.020716"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 05:44:01 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member8@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (4.9ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member8@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 417ms (ActiveRecord: 4.9ms | Allocations: 581)
+Started GET "/account" for 127.0.0.1 at 2020-04-15 06:44:03 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (6.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/login
+Filter chain halted as :check_timeout rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 6.4ms | Allocations: 556)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (2.2ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member9@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$vsV35QpWoCSpYYMyyYpnpOe/ETtVplHEuMkBCwjPfcXqaAGePfRAS"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:44:03.347948"], ["updated_at", "2020-04-15 05:44:03.347948"]]
+  [1m[35m (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 05:44:03 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member9@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (4.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member9@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 452ms (ActiveRecord: 4.1ms | Allocations: 581)
+Started PATCH "/account" for 127.0.0.1 at 2020-04-15 05:44:05 +0000
+Processing by Staff::AccountsController#update as HTML
+  Parameters: {"id"=>"6", "staff_member"=>{"email"=>"test@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"false"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (3.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[31mUnpermitted parameters: :password, :start_date, :end_date, :suspended[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Update (3.3ms)[0m  [1m[33mUPDATE "staff_members" SET "email" = $1, "updated_at" = $2 WHERE "staff_members"."id" = $3[0m  [["email", "test@example.com"], ["updated_at", "2020-04-15 05:44:05.378826"], ["id", 6]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://baukis2.example.com/account
+Completed 302 Found in 27ms (ActiveRecord: 7.4ms | Allocations: 1136)
+  [1m[36mStaffMember Load (5.9ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (0.8ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member11@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$98NwA4RkxEc2pmXqf52tCeeFXNTVOx/IoSpEO.fJSTLJLaH5WfBlC"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:44:05.877681"], ["updated_at", "2020-04-15 05:44:05.877681"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 05:44:06 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member11@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (4.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member11@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 463ms (ActiveRecord: 4.4ms | Allocations: 581)
+Started PATCH "/account" for 127.0.0.1 at 2020-04-15 05:44:07 +0000
+Processing by Staff::AccountsController#update as HTML
+  Parameters: {"id"=>"7", "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (1.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering errors/bad_request.html.erb within layouts/staff
+  Rendered errors/bad_request.html.erb within layouts/staff (Duration: 19.7ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered staff/shared/_header.html.erb (Duration: 0.9ms | Allocations: 153)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 400 Bad Request in 263ms (Views: 258.0ms | ActiveRecord: 1.2ms | Allocations: 2173)
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.3ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member12@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$Y6uKVJDl7f.HIg6luZRa/OfoUY6nQszM0H7uo8qFUuZTUOmzrLyF6"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 05:44:08.493696"], ["updated_at", "2020-04-15 05:44:08.493696"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 05:44:08 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member12@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (16.3ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member12@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 767ms (ActiveRecord: 16.3ms | Allocations: 581)
+Started PATCH "/account" for 127.0.0.1 at 2020-04-15 05:44:10 +0000
+Processing by Staff::AccountsController#update as HTML
+  Parameters: {"id"=>"8", "staff_member"=>{"email"=>"member13@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>"2020-04-16", "suspended"=>"false"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (1.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[31mUnpermitted parameters: :password, :start_date, :end_date, :suspended[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Update (4.4ms)[0m  [1m[33mUPDATE "staff_members" SET "email" = $1, "updated_at" = $2 WHERE "staff_members"."id" = $3[0m  [["email", "member13@example.com"], ["updated_at", "2020-04-15 05:44:11.229570"], ["id", 8]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://baukis2.example.com/account
+Completed 302 Found in 23ms (ActiveRecord: 7.0ms | Allocations: 1107)
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (11.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (11.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 06:18:26 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+Redirected to http://baukis2.example.com/admin/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms | Allocations: 394)
+  [1m[35m (3.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+Started GET "/admin/staff_members/1" for 127.0.0.1 at 2020-04-15 06:18:27 +0000
+Processing by Admin::StaffMembersController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"1"}
+Redirected to http://baukis2.example.com/admin/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms | Allocations: 236)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (8.4ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver1@example.com"], ["hashed_password", "$2a$12$W1G6c0XGrpgsomOsi3/lQ.ZXSJQeVhHYkPvzVoNdlLWKPd8ZI9x3K"], ["created_at", "2020-04-15 06:18:28.745020"], ["updated_at", "2020-04-15 06:18:28.745020"]]
+  [1m[35m (4.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 06:18:29 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver1@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (12.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver1@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 523ms (ActiveRecord: 12.9ms | Allocations: 1103)
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 06:18:30 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (8.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 10.7ms | Allocations: 628)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.7ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver2@example.com"], ["hashed_password", "$2a$12$Fh1ZZ7O2Qir374XjO9QviuM8r0z0xENPDzfzsmf.9wajqTj4yMm.y"], ["created_at", "2020-04-15 06:18:31.909326"], ["updated_at", "2020-04-15 06:18:31.909326"]]
+  [1m[35m (2.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 06:18:32 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver2@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver2@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 438ms (ActiveRecord: 5.7ms | Allocations: 553)
+  [1m[36mAdministrator Update (3.7ms)[0m  [1m[33mUPDATE "administrators" SET "suspended" = $1 WHERE "administrators"."id" = $2[0m  [["suspended", true], ["id", 9]]
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 06:18:33 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (3.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering errors/internal_server_error.html.erb within layouts/admin
+  Rendered errors/internal_server_error.html.erb within layouts/admin (Duration: 29.5ms | Allocations: 204)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 15.1ms | Allocations: 300)
+  Rendered shared/_footer.html.erb (Duration: 9.2ms | Allocations: 84)
+Completed 500 Internal Server Error in 457ms (Views: 446.6ms | ActiveRecord: 3.8ms | Allocations: 4068)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.6ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver3@example.com"], ["hashed_password", "$2a$12$bdXINMi7DBBETDX2XyZvLOu4SwoujZXlrVAxSN7RjMQ0Kv./fS332"], ["created_at", "2020-04-15 06:18:35.074042"], ["updated_at", "2020-04-15 06:18:35.074042"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 06:18:35 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver3@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (4.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver3@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 482ms (ActiveRecord: 4.9ms | Allocations: 553)
+Started GET "/admin/staff_members" for 127.0.0.1 at 2020-04-15 07:18:37 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (9.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 16ms (ActiveRecord: 9.8ms | Allocations: 471)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (1.7ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver4@example.com"], ["hashed_password", "$2a$12$OprWtJLBLoITE3SLOwTIuuyrtL55hR6VSsUEaR0PHg1c4Qp4xGcqS"], ["created_at", "2020-04-15 06:18:37.591648"], ["updated_at", "2020-04-15 06:18:37.591648"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 06:18:37 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver4@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver4@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 415ms (ActiveRecord: 5.1ms | Allocations: 553)
+Started POST "/admin/staff_members" for 127.0.0.1 at 2020-04-15 06:18:39 +0000
+Processing by Admin::StaffMembersController#create as HTML
+  Parameters: {"staff_member"=>{"email"=>"member1@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"false"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 5.1ms | Allocations: 462)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.6ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver5@example.com"], ["hashed_password", "$2a$12$NRoEWZxOTarxydUvyCZaeuSsCNVjRoLvgfZ34w7J0v1QkrxkNLTiG"], ["created_at", "2020-04-15 06:18:39.864873"], ["updated_at", "2020-04-15 06:18:39.864873"]]
+  [1m[35m (3.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 06:18:40 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver5@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (8.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver5@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 443ms (ActiveRecord: 8.9ms | Allocations: 553)
+Started POST "/admin/staff_members" for 127.0.0.1 at 2020-04-15 06:18:41 +0000
+Processing by Admin::StaffMembersController#create as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 16ms (ActiveRecord: 5.8ms | Allocations: 474)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (1.5ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver6@example.com"], ["hashed_password", "$2a$12$LzSNXGxmxaZoUvY46COFbOJNRmIWK5yB.0EdWlmXkosp/T41gQoG2"], ["created_at", "2020-04-15 06:18:42.655379"], ["updated_at", "2020-04-15 06:18:42.655379"]]
+  [1m[35m (3.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 06:18:43 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver6@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (6.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver6@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 473ms (ActiveRecord: 6.4ms | Allocations: 553)
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (9.0ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member3@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$Shl9pezaw6V/JaYcW2Ffre2cd8v0.mXoxAUATz1M2kVZ29QkYbj76"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:18:44.467958"], ["updated_at", "2020-04-15 06:18:44.467958"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/admin/staff_members/9" for 127.0.0.1 at 2020-04-15 06:18:44 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"staff_member"=>{"email"=>"member2@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"true"}, "host"=>"baukis2.example.com", "id"=>"9"}
+  [1m[36mAdministrator Load (3.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 3.8ms | Allocations: 470)
+  [1m[36mStaffMember Load (22.7ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdministrator Create (0.9ms)[0m  [1m[32mINSERT INTO "administrators" ("email", "hashed_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "memver7@example.com"], ["hashed_password", "$2a$12$HPzOgPooZDRGqYFIPPe3dOs4qsYurWDNH7oKpgHTIN0V3biNUJ0GG"], ["created_at", "2020-04-15 06:18:45.869638"], ["updated_at", "2020-04-15 06:18:45.869638"]]
+  [1m[35m (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/admin/session" for 127.0.0.1 at 2020-04-15 06:18:46 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"admin_login_form"=>{"email"=>"memver7@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (12.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'memver7@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Completed 302 Found in 480ms (ActiveRecord: 12.2ms | Allocations: 553)
+  [1m[35m (2.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (0.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member5@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$OQITeYUbEJXROoIV5La7Qe/t5BDVp0P7bfeGw20L2iKcLH.iFY.8W"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:18:47.521445"], ["updated_at", "2020-04-15 06:18:47.521445"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/admin/staff_members/10" for 127.0.0.1 at 2020-04-15 06:18:47 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"staff_member"=>{"email"=>"member4@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"false", "hashed_password"=>"[FILTERED]"}, "host"=>"baukis2.example.com", "id"=>"10"}
+  [1m[36mAdministrator Load (0.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/admin
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.9ms | Allocations: 460)
+  [1m[35m (8.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Started GET "/account" for 127.0.0.1 at 2020-04-15 06:18:48 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+Redirected to http://baukis2.example.com/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 297)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.0ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member6@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$z7MKO6rOOqMhRxCW3hSAWueC6Tj7CNbS.LSFqQwXTXjfmoARQNGmC"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:18:48.921879"], ["updated_at", "2020-04-15 06:18:48.921879"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 06:18:49 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member6@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (6.5ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member6@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 486ms (ActiveRecord: 6.5ms | Allocations: 973)
+Started GET "/account" for 127.0.0.1 at 2020-04-15 06:18:50 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (7.9ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering staff/accounts/show.html.erb within layouts/staff
+  Rendered staff/accounts/show.html.erb within layouts/staff (Duration: 13.2ms | Allocations: 297)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered staff/shared/_header.html.erb (Duration: 11.0ms | Allocations: 326)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 359ms (Views: 327.3ms | ActiveRecord: 7.9ms | Allocations: 3463)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.2ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member7@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$H9MGPeqROPd3e0EX87gZP.ljq1e26o2lfakOqWvCENp6j2CdddXNe"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:18:51.781105"], ["updated_at", "2020-04-15 06:18:51.781105"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 06:18:52 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member7@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (5.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member7@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 415ms (ActiveRecord: 5.4ms | Allocations: 581)
+  [1m[36mStaffMember Update (6.5ms)[0m  [1m[33mUPDATE "staff_members" SET "suspended" = $1 WHERE "staff_members"."id" = $2[0m  [["suspended", true], ["id", 12]]
+Started GET "/account" for 127.0.0.1 at 2020-04-15 06:18:53 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (6.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Filter chain halted as :check_account rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 6.1ms | Allocations: 499)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.0ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member8@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$MWAyAzyNlbYgFFh5KKupFe0WFA9rM.V3EwMaDFGN38mz8D9vYB8Bm"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:18:53.842755"], ["updated_at", "2020-04-15 06:18:53.842755"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 06:18:54 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member8@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (5.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member8@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 435ms (ActiveRecord: 5.2ms | Allocations: 581)
+Started GET "/account" for 127.0.0.1 at 2020-04-15 07:18:55 +0000
+Processing by Staff::AccountsController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (5.5ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://baukis2.example.com/login
+Filter chain halted as :check_timeout rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 5.5ms | Allocations: 570)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (0.7ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member9@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$ukXYWD161KS/0RtD9Uv/JuwdaN0Ejyejr31M4GvnwBHGVBzK/UA.6"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:18:55.586912"], ["updated_at", "2020-04-15 06:18:55.586912"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 06:18:55 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member9@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (7.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member9@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 429ms (ActiveRecord: 7.0ms | Allocations: 581)
+Started PATCH "/account" for 127.0.0.1 at 2020-04-15 06:18:57 +0000
+Processing by Staff::AccountsController#update as HTML
+  Parameters: {"id"=>"14", "staff_member"=>{"email"=>"test@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>nil, "suspended"=>"false"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (9.3ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+[31mUnpermitted parameters: :password, :start_date, :end_date, :suspended[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Update (11.4ms)[0m  [1m[33mUPDATE "staff_members" SET "email" = $1, "updated_at" = $2 WHERE "staff_members"."id" = $3[0m  [["email", "test@example.com"], ["updated_at", "2020-04-15 06:18:57.292254"], ["id", 14]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://baukis2.example.com/account
+Completed 302 Found in 37ms (ActiveRecord: 22.6ms | Allocations: 1112)
+  [1m[36mStaffMember Load (6.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (8.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.1ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member11@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$4eYK0C5n2.mpIsOoVp1SMenQWxPVRT4Oa.0hDlh5dan/7uVYm2znW"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:18:57.760477"], ["updated_at", "2020-04-15 06:18:57.760477"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 06:18:58 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member11@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (5.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member11@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 435ms (ActiveRecord: 5.0ms | Allocations: 581)
+Started PATCH "/account" for 127.0.0.1 at 2020-04-15 06:18:59 +0000
+Processing by Staff::AccountsController#update as HTML
+  Parameters: {"id"=>"15", "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (0.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering errors/bad_request.html.erb within layouts/staff
+  Rendered errors/bad_request.html.erb within layouts/staff (Duration: 15.3ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered staff/shared/_header.html.erb (Duration: 0.9ms | Allocations: 153)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 400 Bad Request in 328ms (Views: 323.5ms | ActiveRecord: 0.8ms | Allocations: 2157)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Create (1.7ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member12@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$QNMsoCth7NJ5Z/rrdkLbgOl1/CtPnHeYm3s38Hfui5DLSatfF2dvy"], ["start_date", "2020-04-14"], ["created_at", "2020-04-15 06:19:00.543819"], ["updated_at", "2020-04-15 06:19:00.543819"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2020-04-15 06:19:01 +0000
+Processing by Staff::SessionsController#create as HTML
+  Parameters: {"staff_login_form"=>{"email"=>"member12@example.com", "password"=>"[FILTERED]"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (5.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE (LOWER(email) = 'member12@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://baukis2.example.com/
+Completed 302 Found in 435ms (ActiveRecord: 5.2ms | Allocations: 581)
+Started PATCH "/account" for 127.0.0.1 at 2020-04-15 06:19:02 +0000
+Processing by Staff::AccountsController#update as HTML
+  Parameters: {"id"=>"16", "staff_member"=>{"email"=>"member13@example.com", "family_name"=>"山田", "given_name"=>"太郎", "family_name_kana"=>"ヤマダ", "given_name_kana"=>"タロウ", "password"=>"[FILTERED]", "start_date"=>"2020-04-14", "end_date"=>"2020-04-16", "suspended"=>"false"}, "host"=>"baukis2.example.com"}
+  [1m[36mStaffMember Load (1.3ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[31mUnpermitted parameters: :password, :start_date, :end_date, :suspended[0m
+  [1m[35m (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Update (5.2ms)[0m  [1m[33mUPDATE "staff_members" SET "email" = $1, "updated_at" = $2 WHERE "staff_members"."id" = $3[0m  [["email", "member13@example.com"], ["updated_at", "2020-04-15 06:19:02.683815"], ["id", 16]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://baukis2.example.com/account
+Completed 302 Found in 27ms (ActiveRecord: 8.8ms | Allocations: 1115)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (5.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
