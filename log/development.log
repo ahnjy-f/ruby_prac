@@ -6422,3 +6422,41 @@ Processing by Admin::StaffEventsController#index as HTML
 Completed 500 Internal Server Error in 3161ms (Views: 2544.5ms | ActiveRecord: 140.7ms | Allocations: 28722)
 
 
+Started GET "/admin/staff_events" for 172.23.0.1 at 2020-04-16 01:26:41 +0000
+Processing by Admin::StaffEventsController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (22.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_events/index.html.erb within layouts/admin
+  [1m[35m (24.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_events"[0m
+  ↳ app/views/admin/staff_events/index.html.erb:16
+  [1m[36mStaffEvent Load (3.3ms)[0m  [1m[34mSELECT "staff_events".* FROM "staff_events" ORDER BY "staff_events"."created_at" DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_events/index.html.erb:24
+  [1m[36mStaffMember Load (24.5ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mCACHE StaffMember Load (0.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mStaffMember Load (4.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mStaffMember Load (3.7ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mCACHE StaffMember Load (0.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mCACHE StaffMember Load (0.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mStaffMember Load (6.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mStaffMember Load (3.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mCACHE StaffMember Load (0.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  [1m[36mStaffMember Load (5.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/admin/staff_events/_event.html.erb:4
+  Rendered collection of admin/staff_events/_event.html.erb [10 times] (Duration: 412.5ms | Allocations: 19115)
+  Rendered admin/staff_events/index.html.erb within layouts/admin (Duration: 2880.7ms | Allocations: 122754)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 15.2ms | Allocations: 268)
+  Rendered shared/_footer.html.erb (Duration: 20.8ms | Allocations: 84)
+Completed 200 OK in 3609ms (Views: 3279.3ms | ActiveRecord: 212.8ms | Allocations: 128957)
+
+
