@@ -6606,3 +6606,714 @@ Processing by Admin::StaffMembersController#index as HTML
 Completed 200 OK in 416ms (Views: 390.6ms | ActiveRecord: 12.1ms | Allocations: 13210)
 
 
+Started GET "/admin/staff_members/new" for 172.23.0.1 at 2020-04-16 04:01:56 +0000
+Processing by Admin::StaffMembersController#new as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (24.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Redirected to http://baukis2.example.com:3000/admin/login
+Filter chain halted as :check_timeout rendered or redirected
+Completed 302 Found in 129ms (ActiveRecord: 26.0ms | Allocations: 5125)
+
+
+Started GET "/admin/login" for 172.23.0.1 at 2020-04-16 04:01:59 +0000
+Processing by Admin::SessionsController#new as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  Rendering admin/sessions/new.html.erb within layouts/admin
+  Rendered admin/sessions/new.html.erb within layouts/admin (Duration: 27.1ms | Allocations: 708)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.7ms | Allocations: 104)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 5)
+Completed 200 OK in 16881ms (Views: 16821.5ms | ActiveRecord: 0.0ms | Allocations: 40814)
+
+
+Started GET "/admin/login" for 172.23.0.1 at 2020-04-16 04:02:21 +0000
+Processing by Admin::SessionsController#new as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  Rendering admin/sessions/new.html.erb within layouts/admin
+  Rendered admin/sessions/new.html.erb within layouts/admin (Duration: 4.0ms | Allocations: 345)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.3ms | Allocations: 82)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 522ms (Views: 517.6ms | ActiveRecord: 0.0ms | Allocations: 4562)
+
+
+Started POST "/admin/session" for 172.23.0.1 at 2020-04-16 04:02:33 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"dRBYZBpqmwyWjzo6nMz4+blTp1xFo2k/cZzBMSINFXAGmbUa2QM5CQ05Wbt2+46bcchuWM3I3+zX2MhROFJA9Q==", "admin_login_form"=>{"email"=>"hanako@example.com", "password"=>"[FILTERED]"}, "commit"=>"ログイン", "host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (7.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE (LOWER(email) = 'hanako@example.com') LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/admin/sessions_controller.rb:17:in `create'
+Redirected to http://baukis2.example.com:3000/admin
+Completed 302 Found in 977ms (ActiveRecord: 7.1ms | Allocations: 3241)
+
+
+Started GET "/admin" for 172.23.0.1 at 2020-04-16 04:02:34 +0000
+Processing by Admin::TopController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (14.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/top/dashboard.html.erb within layouts/admin
+  Rendered admin/top/dashboard.html.erb within layouts/admin (Duration: 35.0ms | Allocations: 207)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 4.0ms | Allocations: 117)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 5)
+Completed 200 OK in 1383ms (Views: 1343.8ms | ActiveRecord: 14.9ms | Allocations: 5417)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:02:39 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (7.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (49.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (8.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 194.4ms | Allocations: 15449)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 3.0ms | Allocations: 98)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 5)
+Completed 200 OK in 1461ms (Views: 1219.7ms | ActiveRecord: 65.3ms | Allocations: 21975)
+
+
+Started GET "/admin/staff_members/11/edit" for 172.23.0.1 at 2020-04-16 04:02:44 +0000
+Processing by Admin::StaffMembersController#edit as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (11.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (4.9ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:18:in `edit'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 296.4ms | Allocations: 2081)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 358.1ms | Allocations: 2777)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 1.0ms | Allocations: 97)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 1199ms (Views: 1130.9ms | ActiveRecord: 16.7ms | Allocations: 8462)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 04:02:56 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"AammJF9wE9QjA8/icrdAXyoSBEUhcVYWwyZN4xF9lpa8LrnzRCHhOwrnNcBjx0ado/aru3GOhZxaIie/gb2EGw==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>"鈴木", "given_name"=>"梅子", "family_name_kana"=>"すずき", "given_name_kana"=>"ウメコ", "start_date"=>"2020-01-16", "end_date"=>"", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (58.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (24.9ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:32:in `update'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 5.0ms | Allocations: 795)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 18.1ms | Allocations: 1117)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 11.6ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 1048ms (Views: 845.1ms | ActiveRecord: 83.3ms | Allocations: 7788)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 04:27:55 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"r63FeY4yXuVf6JV6enNaWEqb1W+sxALhUZH5BIZFQKpRaGkjXDU6iTT3OPURU1X1G8WFGHiL+havsLhZ0z7RBQ==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>"鈴木", "given_name"=>"梅子", "family_name_kana"=>"スズキ", "given_name_kana"=>"ウメコ", "start_date"=>"2020-04-16", "end_date"=>"", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (29.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 310ms (ActiveRecord: 30.5ms | Allocations: 6069)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date },
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:32:in `update'
+Started GET "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 04:28:03 +0000
+Processing by Admin::StaffMembersController#show as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (22.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 134ms (ActiveRecord: 22.9ms | Allocations: 1942)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date },
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:9:in `show'
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:28:11 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (10.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 342ms (ActiveRecord: 10.2ms | Allocations: 1910)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date },
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:4:in `index'
+Started GET "/admin" for 172.23.0.1 at 2020-04-16 04:29:10 +0000
+Processing by Admin::TopController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (7.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/top/dashboard.html.erb within layouts/admin
+  Rendered admin/top/dashboard.html.erb within layouts/admin (Duration: 2.8ms | Allocations: 72)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 3.2ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 785ms (Views: 756.9ms | ActiveRecord: 7.8ms | Allocations: 5140)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:29:14 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (4.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 4.6ms | Allocations: 1912)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date },
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:4:in `index'
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:33:42 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 402ms (ActiveRecord: 179.8ms | Allocations: 6253)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:28: syntax error, unexpected ':', expecting end
+        allow_blank: true
+                   ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:28: syntax error, unexpected ':', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:28: syntax error, unexpected ':', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:28: syntax error, unexpected ':', expecting end
+app/controllers/admin/staff_members_controller.rb:4:in `index'
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:34:02 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (0.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 202ms (ActiveRecord: 65.4ms | Allocations: 6130)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date }, 
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:4:in `index'
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:34:13 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (2.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 53.5ms | Allocations: 6131)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date },
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:4:in `index'
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:35:05 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (11.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (14.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (4.7ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 151.0ms | Allocations: 15498)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.3ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 1651ms (Views: 882.8ms | ActiveRecord: 197.4ms | Allocations: 27261)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:36:37 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (0.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 57.4ms | Allocations: 6077)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date },
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:4:in `index'
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:39:47 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (9.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (21.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 143.0ms | Allocations: 15437)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 2.2ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 1445ms (Views: 885.1ms | ActiveRecord: 164.6ms | Allocations: 26762)
+
+
+Started GET "/admin/staff_members/11/edit" for 172.23.0.1 at 2020-04-16 04:39:55 +0000
+Processing by Admin::StaffMembersController#edit as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (0.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (6.7ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:18:in `edit'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 2.6ms | Allocations: 775)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 10.7ms | Allocations: 1105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.6ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 5)
+Completed 200 OK in 737ms (Views: 708.9ms | ActiveRecord: 7.3ms | Allocations: 6650)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 04:42:53 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"aZ8tWlEYKgX2iNmWg1Zck+obO9JYhMv8ZndH21CqdrrUGDKNSknY6t9sI7SSJlpRY/+ULAh7GHb/cy2HwGpkNw==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>" ", "given_name"=>"梅子", "family_name_kana"=>"すずき", "given_name_kana"=>"ウメコ", "start_date"=>"2020-01-16", "end_date"=>"", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (1.8ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (99.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:32:in `update'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 11.1ms | Allocations: 780)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 21.2ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 3.9ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 5)
+Completed 200 OK in 806ms (Views: 632.4ms | ActiveRecord: 101.0ms | Allocations: 7830)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:45:58 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (0.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (18.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (12.6ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 187.2ms | Allocations: 8238)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.7ms | Allocations: 95)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 1097ms (Views: 1049.0ms | ActiveRecord: 32.4ms | Allocations: 13193)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:46:49 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (0.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (9.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 91.5ms | Allocations: 8238)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 2.3ms | Allocations: 95)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 806ms (Views: 770.2ms | ActiveRecord: 20.3ms | Allocations: 13205)
+
+
+Started GET "/admin/staff_members/11/edit" for 172.23.0.1 at 2020-04-16 04:47:02 +0000
+Processing by Admin::StaffMembersController#edit as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (1.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (9.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:18:in `edit'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 9.0ms | Allocations: 769)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 15.2ms | Allocations: 1095)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 1.8ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 613ms (Views: 566.6ms | ActiveRecord: 10.1ms | Allocations: 6541)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 04:47:31 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"nFzX8HHFr60uCDOHHV7DTX5XbKz/qWPZPJKPqg3MogYh28gnapRdQgfsyaUMLsWP97PDUq9WsFOlluX2nQywiw==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>"鈴木", "given_name"=>"梅子", "family_name_kana"=>"スズキ", "given_name_kana"=>"ウメコ", "start_date"=>"1999-12-31", "end_date"=>"2100-01-01", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (1.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (5.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:32:in `update'
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[36mStaffMember Update (17.3ms)[0m  [1m[33mUPDATE "staff_members" SET "start_date" = $1, "end_date" = $2, "updated_at" = $3 WHERE "staff_members"."id" = $4[0m  [["start_date", "1999-12-31"], ["end_date", "2100-01-01"], ["updated_at", "2020-04-16 04:47:31.590930"], ["id", 11]]
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+Redirected to http://baukis2.example.com:3000/admin/staff_members
+Completed 302 Found in 170ms (ActiveRecord: 42.3ms | Allocations: 4228)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:47:31 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (1.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (23.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (5.1ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 142.9ms | Allocations: 8249)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.5ms | Allocations: 114)
+  Rendered shared/_footer.html.erb (Duration: 2.4ms | Allocations: 5)
+Completed 200 OK in 893ms (Views: 826.7ms | ActiveRecord: 30.4ms | Allocations: 13259)
+
+
+Started GET "/admin/staff_members/11/edit" for 172.23.0.1 at 2020-04-16 04:48:19 +0000
+Processing by Admin::StaffMembersController#edit as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (0.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (9.3ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:18:in `edit'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 6.4ms | Allocations: 797)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 18.9ms | Allocations: 1221)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.5ms | Allocations: 98)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 5)
+Completed 200 OK in 1178ms (Views: 673.2ms | ActiveRecord: 126.9ms | Allocations: 19558)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 04:48:40 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"IWr2yNAY8+Z5gnZ1/xvUFFbGNYG8HINni7OOJbXj8h2c7ekfy0kBCVBmjFfua9LW3yKaf+zjUO0St+R5JSPgkA==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>"鈴木", "given_name"=>"梅子", "family_name_kana"=>"スズキ", "given_name_kana"=>"ウメコ", "start_date"=>"2020-01-01", "end_date"=>"", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (1.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (12.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:32:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[36mStaffMember Update (9.0ms)[0m  [1m[33mUPDATE "staff_members" SET "start_date" = $1, "end_date" = $2, "updated_at" = $3 WHERE "staff_members"."id" = $4[0m  [["start_date", "2020-01-01"], ["end_date", nil], ["updated_at", "2020-04-16 04:48:40.740214"], ["id", 11]]
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+Redirected to http://baukis2.example.com:3000/admin/staff_members
+Completed 302 Found in 146ms (ActiveRecord: 27.6ms | Allocations: 4184)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:48:40 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (6.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (11.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (22.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 118.9ms | Allocations: 8756)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.3ms | Allocations: 114)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 783ms (Views: 727.1ms | ActiveRecord: 39.6ms | Allocations: 13787)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:48:58 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (1.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+Completed 500 Internal Server Error in 293ms (ActiveRecord: 81.9ms | Allocations: 6121)
+
+
+  
+SyntaxError (/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+        before: -> (obj) { 1.year.from_now....
+        ^~~~~~
+/apps/ruby_prac/app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+...j) { 1.year.from_now.to_date },
+...                              ^):
+  
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/models/staff_member.rb:27: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/models/staff_member.rb:27: syntax error, unexpected ',', expecting end
+app/controllers/admin/staff_members_controller.rb:4:in `index'
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 04:50:10 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (1.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (4.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 134.0ms | Allocations: 15437)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.5ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 5)
+Completed 200 OK in 1096ms (Views: 674.6ms | ActiveRecord: 141.5ms | Allocations: 26844)
+
+
+Started GET "/admin/staff_members/11/edit" for 172.23.0.1 at 2020-04-16 04:50:17 +0000
+Processing by Admin::StaffMembersController#edit as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (2.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (0.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:18:in `edit'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 4.2ms | Allocations: 775)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 10.1ms | Allocations: 1103)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.5ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 740ms (Views: 676.5ms | ActiveRecord: 2.7ms | Allocations: 6649)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 04:50:35 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"6ArWurJEJurjlP+l4KcXU+iNqrEQaVjp7So7p5YvPX1VjcltqRXUBcpwBYfx1xGRYWkFT0CWi2N0LlH7Bu8v8A==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>"鈴木", "given_name"=>"梅子", "family_name_kana"=>"スズキ", "given_name_kana"=>"ウメコ", "start_date"=>"19991-12-31", "end_date"=>"2100-01-01", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (5.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (0.9ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:32:in `update'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 5.9ms | Allocations: 783)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 15.9ms | Allocations: 1105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.4ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 863ms (Views: 773.5ms | ActiveRecord: 6.4ms | Allocations: 8767)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 05:11:24 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (33.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (71.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (5.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 260.4ms | Allocations: 15419)
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 05:11:26 +0000
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.3ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 5)
+Completed 200 OK in 1335ms (Views: 998.4ms | ActiveRecord: 110.8ms | Allocations: 27274)
+
+
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (4.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 107.9ms | Allocations: 15438)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.5ms | Allocations: 99)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 3143ms (Views: 2787.1ms | ActiveRecord: 209.5ms | Allocations: 26898)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 05:11:32 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (5.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (27.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (15.0ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 227.5ms | Allocations: 8247)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.3ms | Allocations: 95)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 1470ms (Views: 1376.9ms | ActiveRecord: 47.6ms | Allocations: 13206)
+
+
+Started GET "/admin/staff_members/11/edit" for 172.23.0.1 at 2020-04-16 05:11:35 +0000
+Processing by Admin::StaffMembersController#edit as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (6.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (10.7ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:18:in `edit'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 2.8ms | Allocations: 775)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 7.1ms | Allocations: 1103)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.3ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 536ms (Views: 498.3ms | ActiveRecord: 16.6ms | Allocations: 6646)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 05:12:14 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"oGnW/258wVuNgl8fFWe89ivIR5yKvxNc4DFCk8oplxkd7skodS0ztKRmpT0EF7o0oizoYtpAwNZ5NSjPWumFlA==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>"鈴木", "given_name"=>"梅子", "family_name_kana"=>"スズキ", "given_name_kana"=>"ウメコ", "start_date"=>"2020-01-01", "end_date"=>"", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (14.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (14.8ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:32:in `update'
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[36mStaffMember Exists? (22.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) AND "staff_members"."id" != $2 LIMIT $3[0m  [["email", "suzuki.umeko@example.com"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+Redirected to http://baukis2.example.com:3000/admin/staff_members
+Completed 302 Found in 415ms (ActiveRecord: 295.6ms | Allocations: 4775)
+
+
+Started GET "/admin/staff_members" for 172.23.0.1 at 2020-04-16 05:12:14 +0000
+Processing by Admin::StaffMembersController#index as HTML
+  Parameters: {"host"=>"baukis2.example.com"}
+  [1m[36mAdministrator Load (4.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  Rendering admin/staff_members/index.html.erb within layouts/admin
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "staff_members"[0m
+  ↳ app/views/admin/staff_members/index.html.erb:9
+  [1m[36mStaffMember Load (9.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" ORDER BY "staff_members"."family_name_kana" ASC, "staff_members"."given_name_kana" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/admin/staff_members/index.html.erb:21
+  Rendered admin/staff_members/index.html.erb within layouts/admin (Duration: 98.7ms | Allocations: 8240)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.4ms | Allocations: 114)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 929ms (Views: 878.4ms | ActiveRecord: 21.2ms | Allocations: 13230)
+
+
+Started GET "/admin/staff_members/11/edit" for 172.23.0.1 at 2020-04-16 05:12:57 +0000
+Processing by Admin::StaffMembersController#edit as HTML
+  Parameters: {"host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (0.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (5.4ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:18:in `edit'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 1.3ms | Allocations: 769)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 5.8ms | Allocations: 1095)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 3.9ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 606ms (Views: 584.4ms | ActiveRecord: 6.0ms | Allocations: 6548)
+
+
+Started PATCH "/admin/staff_members/11" for 172.23.0.1 at 2020-04-16 05:13:15 +0000
+Processing by Admin::StaffMembersController#update as HTML
+  Parameters: {"authenticity_token"=>"d9XrHkp47511z/HCcXE/iuGUI1MBcUOFoK/X7ybLnVrKUvTJUSkdclwrC+BgATlIaHCMrVGOkA85q72ztguP1w==", "staff_member"=>{"email"=>"suzuki.umeko@example.com", "family_name"=>" ", "given_name"=>"梅子", "family_name_kana"=>"スズキ", "given_name_kana"=>"ウメコ", "start_date"=>"2020-01-01", "end_date"=>"", "suspended"=>"0"}, "commit"=>"更新", "host"=>"baukis2.example.com", "id"=>"11"}
+  [1m[36mAdministrator Load (5.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/base.rb:9:in `current_administrator'
+  [1m[36mStaffMember Load (21.2ms)[0m  [1m[34mSELECT "staff_members".* FROM "staff_members" WHERE "staff_members"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:32:in `update'
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[36mStaffMember Exists? (7.6ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) AND "staff_members"."id" != $2 LIMIT $3[0m  [["email", "suzuki.umeko@example.com"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/admin/staff_members_controller.rb:34:in `update'
+  Rendering admin/staff_members/edit.html.erb within layouts/admin
+  Rendered admin/staff_members/_form.html.erb (Duration: 11.1ms | Allocations: 771)
+  Rendered admin/staff_members/edit.html.erb within layouts/admin (Duration: 19.6ms | Allocations: 1093)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered admin/shared/_header.html.erb (Duration: 0.2ms | Allocations: 94)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 5)
+Completed 200 OK in 968ms (Views: 733.6ms | ActiveRecord: 38.2ms | Allocations: 10040)
+
+

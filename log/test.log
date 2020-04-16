@@ -1429,3 +1429,91 @@ Completed 302 Found in 27ms (ActiveRecord: 8.8ms | Allocations: 1115)
   [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (12.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (32.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (87.0ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "text@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (36.2ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "text@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$6Mup2hiyFRNDQyVmfxGFT.SfQpaA7fNWBILt3/Oazrfn1k7sMRdAO"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:05:41.168619"], ["updated_at", "2020-04-16 05:05:41.168619"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (0.8ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "test@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$80UG3xlqnkKjNNPqK.IPter0Pk.PTcwTaB/fM9pT3eMEX5TawZNXG"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:05:41.860435"], ["updated_at", "2020-04-16 05:05:41.860435"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (10.3ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (3.3ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "test@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$yQ2.UDI/aaV5YoXrBPEN.ON1tOgwsy/no8F/S63VzQ6gFITJTihrS"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:05:42.334228"], ["updated_at", "2020-04-16 05:05:42.334228"]]
+  [1m[35m (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (5.7ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "member1@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (1.1ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member1@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "テスト"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$IOqbxteXRfaCVFDJAnhG1OmQXxHN4N7piqdEvPdrlu5X/9QspJUGm"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:05:42.852385"], ["updated_at", "2020-04-16 05:05:42.852385"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (16.7ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "member2@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (2.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member2@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "テスト"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$fVxIYOA9R0zRkAYHkzKJu.dHSiI7LjQz21ud9o.uYWt10sD1fFD8C"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:05:43.431419"], ["updated_at", "2020-04-16 05:05:43.431419"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (22.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (18.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (13.7ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "text@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (14.7ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "text@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$XMfoguYNeZglZnMTaruXgOonNHSsFe90otX5ZTU8.xd.mfjxIkLV6"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:19:50.467778"], ["updated_at", "2020-04-16 05:19:50.467778"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (6.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (1.6ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "test@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$4U0QHOAwr7WiWr.Dgvgj..287TXr7KoDTV4hmtdjh0Xas52xTKnQO"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:19:50.902467"], ["updated_at", "2020-04-16 05:19:50.902467"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "test@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (1.1ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "test@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$enEdE8yydpujBTmzCcwUf.U8n5edQ03ZK57h0Vr6bg3NUnT0812xi"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:19:51.328917"], ["updated_at", "2020-04-16 05:19:51.328917"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (6.9ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "member1@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (0.9ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member1@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "テスト"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$eWJPQp37Mhsd05MuFzyx.eCtXMbVvl3vIa6B.ZnNqDCd80hA/KS8i"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:19:51.734642"], ["updated_at", "2020-04-16 05:19:51.734642"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (13.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (5.7ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "member2@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (1.4ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member2@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "テスト"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$6cOQhkOScJCdnQoMp2rsReZ6JBxE65no/EZGPf5MWUEiSUvxbve0K"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:19:52.187331"], ["updated_at", "2020-04-16 05:19:52.187331"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Exists? (9.6ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "text@@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Exists? (6.4ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "member3@example.com"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStaffMember Exists? (6.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "エリー"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (42.1ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "member4@example.com"], ["LIMIT", 1]]
+  [1m[36mStaffMember Create (1.1ms)[0m  [1m[32mINSERT INTO "staff_members" ("email", "family_name", "given_name", "family_name_kana", "given_name_kana", "hashed_password", "start_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["email", "member4@example.com"], ["family_name", "山田"], ["given_name", "太郎"], ["family_name_kana", "ヤマダ"], ["given_name_kana", "タロウ"], ["hashed_password", "$2a$12$b5xt5jo9zG1QDHQHZsUxtuIT0wtoIADBOTYfRPzRkWmwrW95yzdTC"], ["start_date", "2020-04-15"], ["created_at", "2020-04-16 05:19:55.825020"], ["updated_at", "2020-04-16 05:19:55.825020"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mStaffMember Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "staff_members" WHERE LOWER("staff_members"."email") = LOWER($1) LIMIT $2[0m  [["email", "member4@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
