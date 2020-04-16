@@ -44,6 +44,16 @@ RSpec.describe StaffMember, type: :model do
   end
 
   describe "バリデーション" do
+    example "英語でfamily_nameは有効" do
+      member = build(:staff_member, family_name: "Ahn")
+      expect(member).to be_valid
+    end
+
+    example "ミスタイプして記号が入ったfamily_nameは無効" do
+      member = build(:staff_member, family_name: "Ahn?!")
+      expect(member).not_to be_valid
+    end
+
     example "@を２個含むemailは無効" do
       member = build(:staff_member, email: "text@@example.com")
       expect(member).not_to be_valid
