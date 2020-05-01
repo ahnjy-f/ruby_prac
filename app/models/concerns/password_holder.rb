@@ -1,4 +1,4 @@
-module PersonalNameHolder
+module PasswordHolder
     extend ActiveSupport::Concern
 
     def password=(raw_password)
